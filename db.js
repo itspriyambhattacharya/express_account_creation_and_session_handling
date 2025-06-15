@@ -7,3 +7,5 @@ const pool = mysql2.createPool({
   database: "user_auth",
   connectionLimit: 10,
 });
+
+module.exports = pool;
