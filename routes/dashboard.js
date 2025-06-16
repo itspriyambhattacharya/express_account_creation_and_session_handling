@@ -1,12 +1,18 @@
 const express = require("express");
 const route = express.Router();
-route.use((req, res, next) => {
-  console.log("DAshboard middleware");
-  next();
-});
 
-route.get("/", (req, res) => {
-  res.render("dashboard");
+function isAuthenticated(req, res, next) {
+  if (req.session.user) {
+    next();
+  } else {
+    res.redirect("/login");
+  }
+}
+
+route.get("/", isAuthenticated, (req, res) => {
+  res.render("dashboard", {
+    user: req.session.user,
+  });
 });
 
 module.exports = route;
