@@ -13,7 +13,6 @@ route.get("/", (req, res) => {
 
 route.post("/", (req, res) => {
   const { email, password } = req.body;
-  console.log(req.body);
 
   const sql = "SELECT * FROM users WHERE uemail = ? AND upass = ?";
 
