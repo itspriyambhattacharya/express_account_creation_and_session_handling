@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 const session = require("express-session");
+const flash = require("connect-flash");
+
 const HOST = "0.0.0.0";
 
 app.set("view engine", "ejs");
@@ -19,6 +21,8 @@ app.use(
     },
   })
 );
+
+app.use(flash());
 
 const idx = require("./routes/index");
 const reg = require("./routes/registration");
