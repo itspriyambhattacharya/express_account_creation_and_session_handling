@@ -23,6 +23,15 @@ const reg = require("./routes/registration");
 const login = require("./routes/login");
 const dashboard = require("./routes/dashboard");
 
+app.get("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error("Logout error:", err);
+    }
+    res.redirect("/login");
+  });
+});
+
 app.use("/", idx);
 app.use("/registration", reg);
 app.use("/login", login);
