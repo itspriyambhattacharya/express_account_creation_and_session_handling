@@ -21,10 +21,12 @@ app.use(
 const idx = require("./routes/index");
 const reg = require("./routes/registration");
 const login = require("./routes/login");
+const dashboard = require("./routes/dashboard");
 
 app.use("/", idx);
 app.use("/registration", reg);
 app.use("/login", login);
+app.use("/dashboard", dashboard);
 
 app.listen(port, () => {
   console.log(`App listening on Port: ${port}`);
