@@ -8,6 +8,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
+// session config
 app.use(
   session({
     secret: "localhost123",
