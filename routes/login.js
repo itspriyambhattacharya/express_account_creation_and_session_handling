@@ -23,13 +23,6 @@ route.post("/", (req, res) => {
       return;
     }
     console.log(results);
-    /*
-    if (results.length > 0) {
-      res.send(`Welcome, ${results[0].uname}. Login successful.`);
-    } else {
-      res.send("Invalid email or password.");
-    }
-    */
 
     if (results.length > 0) {
       req.session.user = {
