@@ -8,7 +8,8 @@ route.use((req, res, next) => {
 });
 
 route.get("/", (req, res) => {
-  res.render("login");
+  const errorMessage = req.flash("error"); // get flash message
+  res.render("login", { errorMessage }); // pass to template
 });
 
 route.post("/", (req, res) => {
@@ -31,7 +32,9 @@ route.post("/", (req, res) => {
       };
       res.redirect("/dashboard");
     } else {
-      res.send("Invalid Email or Password");
+      // res.send("Invalid Email or Password");
+      req.flash("error", "Invalid login"); // flash set
+      res.redirect("/login");
     }
   });
 });
