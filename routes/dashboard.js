@@ -3,9 +3,9 @@ const route = express.Router();
 
 function isAuthenticated(req, res, next) {
   if (req.session.user) {
-    next();
+    next(); // proceed to requested route
   } else {
-    res.redirect("/login");
+    res.redirect("/login"); // block access, user is not authenticated
   }
 }
 
