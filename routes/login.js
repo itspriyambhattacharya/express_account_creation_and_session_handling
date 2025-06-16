@@ -37,6 +37,9 @@ route.post("/", (req, res) => {
         name: results[0].uname,
         email: results[0].uemail,
       };
+      res.redirect("/dashboard");
+    } else {
+      res.send("Invalid Email or Password");
     }
   });
 });
