@@ -14,7 +14,6 @@ route.get("/", (req, res) => {
 route.post("/", (req, res) => {
   const { name, email, password } = req.body;
   const val = [name, email, password];
-  console.log(req.body);
 
   const sql = "INSERT INTO users (uname, uemail, upass) VALUES (?, ?, ?)";
 
@@ -26,8 +25,6 @@ route.post("/", (req, res) => {
     console.log("User registered:", result.insertId);
     res.redirect("/login");
   });
-
-  // res.redirect("/login");
 });
 
 module.exports = route;
