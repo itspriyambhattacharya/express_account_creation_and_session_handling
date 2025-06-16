@@ -21,7 +21,7 @@ route.post("/", (req, res) => {
       console.log(err.message);
       return;
     }
-    console.log(results);
+    console.log(results); // displays an array containing objects of matched results
 
     if (results.length > 0) {
       req.session.user = {
